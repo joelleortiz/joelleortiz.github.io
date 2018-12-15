@@ -1,0 +1,19 @@
+# Build settings
+
+repository: joelleortiz/joelleortiz.github.io
+markdown: kramdown
+permalink: pretty
+
+port: 8000
+
+sass:
+  style: :nested
+
+theme: jekyll-theme-midnight
+
+plugins:
+  - "jekyll-gist"
+  - "jekyll-avatar"
+  - "jemoji"
+  - "jekyll-mentions"
+  - "jekyll-octicons"
