@@ -4,12 +4,12 @@ repository: joelleortiz/joelleortiz.github.io
 markdown: kramdown
 permalink: pretty
 
-port: 8000
+port: 9000
 
 sass:
   style: :nested
 
-theme: jekyll-theme-midnight
+remote-theme: jeromelachaud/freelancer-theme
 
 plugins:
   - "jekyll-gist"
