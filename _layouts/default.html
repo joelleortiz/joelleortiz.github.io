@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html class="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  {% if page.title %}
+  <title>{{ page.title }}</title>
+  {% else %}
+  <title>{{ site.data.settings.title }}</title>
+  {% endif %}
+  
+  <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Lato|Source+Sans+Pro" rel="stylesheet">
+  
+  {% if page.stylesheets %}
+  {% for css in page.stylesheets %}
+  <link rel="stylesheet" href="{{ css }}">
+  {% endfor %}
+  {% endif %}
+  
+  <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+</head>
+<body>
+  
+  {{content}}
+  
+</body>
+</html>

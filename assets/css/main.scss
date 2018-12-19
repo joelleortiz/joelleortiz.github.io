@@ -1,0 +1,125 @@
+---
+---
+
+@import 'utils';
+@import 'colors';
+@import 'vars';
+@import 'reset';
+@import 'typography';
+
+html,body {
+    height: 100%;
+    width:100%;
+    padding:0;
+    margin:0;
+}
+
+body {
+    @include type-lato;
+    background-color: get-color('primary');
+    color: get-color('primary', 'contrast');
+    font-size: 1.5em;
+}
+
+.container {
+    width:100%;
+    margin: 0 auto;
+    @include breakpoint ('md') {
+        max-width: 700px;
+    }
+    @include breakpoint ('lg') {
+        max-width: 1000px;
+    }
+}
+
+@mixin header-style($color-name) {
+    display: inline-block;
+    color: get-color($color-name, 'contrast');
+    background: linear-gradient(to bottom, 
+    get-color($color-name,'base',0) 0%, 
+    get-color($color-name,'base',0) 50%, 
+    get-color($color-name,'base',1) 51%, 
+    get-color($color-name,'base',1) 100%);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    padding-left: 0.5em;
+    padding-right: 1em;
+    margin-bottom: 1em;
+    @include type-big;
+    letter-spacing: 1px;
+    
+    &.blue {
+        @include header-style('primary');
+    }
+    
+    &.pink {
+        @include header-style('secondary');
+    }
+    
+    &.green {
+        @include header-style('green');
+    }
+    
+    &.warn {
+        @include header-style('warn');
+    }
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+}
+
+section {
+    min-height: 300px;
+    padding: 1rem;
+    
+    &.primary {
+        background: get-color('primary');
+        color: get-color('primary', 'contrast');
+    }
+    
+    &.secondary {
+        background: get-color('secondary');
+        color: get-color('secondary', 'contrast');
+    }
+}
+
+.menu {
+    display: flex;
+    margin: 0 (-$gutter-size/2);
+    font-size: 1rem;
+    letter-spacing: 1px;
+
+    li {
+        margin: 0 $gutter-size/2;
+        > a {
+            @include links (get-color('primary','contrast')) {
+                text-decoration:none;
+            }
+            svg {
+                vertical-align: middle;
+            }
+            .link-label {
+                line-height: 24px;
+            }
+        }
+    }
+}

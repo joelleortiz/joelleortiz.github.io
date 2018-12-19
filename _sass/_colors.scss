@@ -1,0 +1,54 @@
+// https://material.io/tools/color/#!/?view.left=1&view.right=1&primary.color=044F67&secondary.color=C93756&primary.text.color=ffffff&secondary.text.color=ffffff
+
+$colors: (
+  'primary': (
+    'base': #044F67,
+    'light': #427b95,
+    'dark': #00273c,
+    'contrast': #ffffff,
+    'light-contrast': #fff
+  ),
+  'secondary': (
+    'base': #c93756,
+    'light': #ff6b82,
+    'dark': #92002e,
+    'contrast':#ffffff,
+    'light-contrast': #fff
+  ),
+  'green': (
+    'base': #007070,
+    'light': #479f9e,
+    'dark': #004445,
+    'contrast':#000,
+    'light-contrast': #fff
+  ),
+  'warn': (
+    'base': #f9a844,
+    'light': #ffda74,
+    'dark': #c2790d,
+    'contrast':#000,
+    'light-contrast': #000
+  )
+ );
+
+$color-interval: 10%;
+
+@function get-color($name: 'primary', $variant: 'base', $alpha: 1) {
+
+  $color: null;
+
+  $color-spectrum: map-get($colors, $name);
+
+  $color: if(map-has-key($color-spectrum, $variant), map-get($color-spectrum, $variant), get-color($name));
+
+  @if type-of($variant) == 'number' {
+    $color-base: if($variant < 0, black, white);
+    $color: mix($color-base, $color, abs($variant) * $color-interval);
+  } 
+  
+  @if ($alpha) {
+    $color: rgba($color, $alpha);
+  }
+  
+  @return $color;
+}

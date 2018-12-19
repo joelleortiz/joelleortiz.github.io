@@ -1,0 +1,20 @@
+@mixin type-big {
+    font-family: 'Alfa Slab One', cursive;
+}
+
+@mixin type-lato {
+    font-family: 'Lato', sans-serif;
+}
+
+@mixin type-sub {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+// ICONS
+.octicon.primary {
+    fill: get-color('primary', 'contrast');
+}
+
+.octicon.secondary {
+    fill: get-color('secondary', 'contrast');
+}

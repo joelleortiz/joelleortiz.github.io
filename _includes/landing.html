@@ -1,0 +1,17 @@
+<header>
+    <div class="container">
+        <h1 class="pink">{{ site.data.landing.title }}</h1>
+        <ul class="menu">
+            {% for link in site.data.landing.links %}
+            <li class=""><a href="{{ link.url }}" title="{{ link.tooltip }}">
+                {% if link.icon %}
+                {% octicon {{ link.icon }} height:"32" class:"primary" %}
+                {% endif %}
+                <span class="link-label">
+                    {{ link.name }}
+                </span>
+            </a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</header>
