@@ -9,7 +9,7 @@ port: 9000
 sass:
   style: :nested
 
-remote-theme: jeromelachaud/freelancer-theme
+theme: jekyll-theme-midnight
 
 plugins:
   - "jekyll-gist"
